@@ -1,0 +1,78 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta name="keywords" content="Nearest-neighbor search, Binary codes, Multi-index Hashing, Sub-linear search, Hamming search, Hamming embedding">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>Fast Exact Search in Hamming Space with Multi-Index Hashing</title>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34493916-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="title">
+    </div>
+    <div class="line"></div>
+    <div class="main">
+      <div style="padding-bottom: .7cm; text-align: center;">
+	<p>
+	  <span class="boldbig">Fast Exact Search in Hamming Space with Multi-Index Hashing</span><br />
+	</p>
+	<p>Version 1.0 - Updated on Aug 21, 2012.</p>
+	<img src="multi_index_hashing.png" alt="multi-index hashing logo" style="width:19cm; padding:.5cm;"/><br />
+      </div>
+      <p>
+	This is a C++/matlab implementation of the Multi-Index Hashing (MIH)
+	algorithm [1] for fast exact nearest neighbor search in Hamming distance
+	on binary codes. By using this code, one can reproduce most of the
+	results explained in the paper on 1 billion and 80 million
+	datasets. This implementation improves the storage efficiency of our
+	previous implementation described in the paper by utilizing sparse
+	hash tables.
+      </p>
+      <p>
+	You can download the latest version of our code
+	from <a href="https://github.com/norouzi/mih">github.com/norouzi/mih</a>.
+      </p>
+      <br />
+    </div>
+    <div class="dline"></div>
+    <div class="main">
+      <div class="boldbig2">Reference</div>
+      <p>
+	[1] <em>An extended version of the conference paper</em>,
+	<a href="http://arxiv.org/abs/1307.2982">arxiv.org/abs/1307.2982</a>
+      </p>
+      <p>
+	[2] <em>Fast Search in Hamming Space with Multi-Index Hashing</em>,
+	<a href="http://www.cs.toronto.edu/~norouzi/">Mohammad Norouzi</a>, Ali Punjani, <a href="http://www.cs.toronto.edu/~fleet/">David Fleet</a>,<br />
+	IEEE Computer Vision and Pattern Recognition (CVPR), 2012. <a href="../../research/papers/multi_index_hashing.pdf">[pdf]</a>
+      </p>
+      <p>
+	Abstract: There has been growing interest in mapping image data onto
+	compact binary codes for fast near neighbor search in vision
+	applications. Although binary codes are motivated by their use as
+	direct indices (addresses) into a hash table, codes longer than 32
+	bits are not being used in this way, as it was thought to be
+	ineffective. We introduce a rigorous way to build multiple hash tables
+	on binary code substrings that enables exact K-nearest neighbor search
+	in Hamming space. The algorithm is straightforward to implement,
+	storage efficient, and it has sub-linear run-time behavior for
+	uniformly distributed codes. Empirical results show dramatic speed-ups
+	over a linear scan baseline and for datasets with up to one billion
+	items, 64- or 128-bit codes, and search radii up to 25 bits.
+      </p>
+    </div>
+    <!-- <div class="dline"></div> -->
+    <!-- <div id="footer"> -->
+    <!-- Last updated on November 7, 2009. -->
+    <!-- </div> -->
+  </body>
+</html>

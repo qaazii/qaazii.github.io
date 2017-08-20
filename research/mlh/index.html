@@ -1,0 +1,85 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta name="keywords" content="Minimal loss hashing, Nearest neighbor, Binary codes, hashing">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+    <title>Minimal Loss Hashing for Compact Binary Codes</title>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34493916-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="title">
+    </div>
+    <div class="line"></div>
+    <div class="main">
+      <div style="padding-bottom: .7cm; text-align: center;">
+	<p>
+	  <span class="boldbig">Minimal Loss Hashing for Compact Binary Codes</span><br />
+	</p>
+	<p>Version 1.1 - Updated on Aug 10, 2012.</p>
+	<img src="sim_pres_hashing.png" alt="similarity preserving logo" style="width:16.5cm; padding:.5cm;"/><br />
+      </div>
+      <p>
+	This is an implementation of minimal loss hashing (MLH) method [1] for
+	learning similarity preserving hash functions that map
+	high-dimensional data onto binary codes. Binary codes received lots of
+	recent interest because they are storage efficient and they facilitate
+	fast retrieval.
+	<!-- A similarity preserving mapping to binary codes can be used to support -->
+	<!-- approximate nearest neighbor (ANN) search in Euclidean space, or to -->
+	<!-- model complicated neighborhood structures in the input space. -->
+      </p>
+      <p>
+	You can download the latest version of our code
+	from <a href="https://subversion.assembla.com/svn/min-loss-hashing/trunk">this
+	  SVN repository</a>, or from <a href="mlh_code_v1.1.tar">this archive file</a>.
+      </p>
+      <p>
+	The code is implemented in Matlab, with a few helper functions
+	implemented in C++ for efficiency reasons.  Please refer to
+	the <a href="http://subversion.assembla.com/svn/min-loss-hashing/trunk/README.txt">README</a>
+	file for instructions on usage and compilation. The code is ready for
+	re-running experiments described in the paper on Euclidean and semantic
+	22K LabelMe, and on 6 other datasets (10D uniform, mnist, LabelMe,
+	notredame, peekaboom, nursery). Please download the datasets
+	separately
+	from <a href="data/LabelMe_gist.mat">22K
+	  LabelMe</a> (courtesy of <a href="http://cs.nyu.edu/~fergus/">Rob Fergus</a>)
+	and <a href="data/5_datasets.tar">5 other
+	  datasets</a> (courtesy of <a href="http://www.cse.ohio-state.edu/~kulis/">Brian Kulis</a>).
+      </p>
+      <br />
+    </div>
+    <div class="dline"></div>
+    <div class="main">
+      <div class="boldbig2">Reference</div>
+      <p>
+	[1] <em>Minimal Loss Hashing for Compact Binary Codes</em>,
+	<a href="http://www.cs.toronto.edu/~norouzi/">Mohammad Norouzi</a>, <a href="http://www.cs.toronto.edu/~fleet/">David Fleet</a>,<br />
+	International Conference in Machine Learning (ICML), 2011. <a href="../../research/papers/min_loss_hashing.pdf">[pdf]</a>
+      </p>
+      <p>
+	Abstract: We propose a method for learning
+	similarity-preserving hash functions that map high-dimensional
+	data onto binary codes. The formulation is based on structured
+	prediction with latent variables and a hinge-like loss
+	function. It is efficient to train for large datasets, scales
+	well to large code lengths, and outperforms state-of-the-art
+	methods.
+      </p>
+    </div>
+    <!-- <div class="dline"></div> -->
+    <!-- <div id="footer"> -->
+    <!-- Last updated on November 7, 2009. -->
+    <!-- </div> -->
+  </body>
+</html>

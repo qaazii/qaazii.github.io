@@ -1,0 +1,412 @@
+% LaTeX Curriculum Vitae Template
+%
+% Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
+% http://jblevins.org/projects/cv-template/
+%
+% You may use use this document as a template to create your own CV
+% and you may redistribute the source code freely. No attribution is
+% required in any resulting documents. I do ask that you please leave
+% this notice and the above URL in the source code if you choose to
+% redistribute this file.
+
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+
+% Comment the following line to use the default Computer Modern font
+% instead of the Palatino font provided by the mathpazo package.
+% Remove the 'osf' bit if you don't like the old style figures.
+\usepackage[sc,osf]{mathpazo}
+
+% In practice, I use the following font packages instead of mathpazo.
+% beramono provides a nice fixed-width font. xagaramon uses the
+% (commercial) Adobe Garamond font.
+%\usepackage[scaled=0.75]{beramono}
+%\usepackage[osf]{xagaramon}
+
+% Set your name here
+\def\name{Mohammad Norouzi}
+
+% Replace this with a link to your CV if you like, or set it empty
+% (as in \def\footerlink{}) to remove the link in the footer:
+\def\footerlink{}
+
+% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = true,
+  urlcolor = blue,
+  pdfauthor = {\name},
+  pdfkeywords = {computer science, machine learning, computer vision},
+  pdftitle = {\name: Curriculum Vitae},
+  pdfsubject = {Curriculum Vitae},
+  pdfpagemode = UseNone
+}
+
+\geometry{
+  body={6.5in, 8.5in},
+  left=1.0in,
+  top=1.25in
+}
+
+% Customize page headers
+\pagestyle{myheadings}
+\markright{\name}
+\thispagestyle{empty}
+
+% Custom section fonts
+\usepackage{sectsty}
+\sectionfont{\rmfamily\mdseries\Large}
+\subsectionfont{\rmfamily\mdseries\itshape\large}
+
+% Other possible font commands include:
+% \ttfamily for teletype,
+% \sffamily for sans serif,
+% \bfseries for bold,
+% \scshape for small caps,
+% \normalsize, \large, \Large, \LARGE sizes.
+
+% Don't indent paragraphs.
+\setlength\parindent{0em}
+
+% Make lists without bullets
+\renewenvironment{itemize}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{1.5em}
+  }
+}{
+  \end{list}
+}
+
+\begin{document}
+
+% Place name at left
+{\huge \name}
+
+% Alternatively, print name centered and bold:
+%\centerline{\huge \bf \name}
+
+\vspace{0.25in}
+
+\begin{minipage}[t]{0.5\textwidth}
+  Senior Research Scientist, Google Inc.\\
+  Mountain View, CA, USA
+  %% \href{http://www.cs.toronto.edu}{Computer Science Department} \\
+  %% University of Toronto \\
+  %% Toronto ON, Canada
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+  %% Phone: +1 (647) 771-2435\\
+  Email: \href{mailto:mnorouzi@google.com}{\tt mnorouzi@google.com} \\
+  \href{https://research.google.com/pubs/MohammadNorouzi.html}{Google research profile} \\
+\end{minipage}
+
+\section*{Employment}
+
+\begin{itemize}
+  \item Senior Research Scientist, Google Inc.\\
+    Google Brain team,~~~~~Jan 2016 -- present.
+\end{itemize}
+
+\section*{Education}
+
+\begin{itemize}
+  \item Ph.D. in Computer Science\\
+    University of Toronto, ON Canada,~~~~~Sep 2010 -- Dec 2015.
+    \begin{itemize}
+    \item \textit{Thesis:} Learning Compact Discrete Representations for
+Scalable Similarity Search
+    \item \textit{Advisor:} \href{http://www.cs.toronto.edu/~fleet/}{David Fleet}
+%%     \item \textit{Coursework:} Bayesian Methods for Machine Learning~(A+),
+%%     Advanced Machine Learning~(A+), Foundations of Computer Vision~(A+), Convex Optimization~(A)
+    \end{itemize}
+
+  \item M.Sc. in Computer Science\\
+    Simon Fraser University, BC Canada,~~~~~Jan 2008 -- Dec 2009.
+    \begin{itemize}
+    \item \textit{Thesis:} Convolutional Restricted Boltzmann Machines for feature learning
+    \item \textit{Advisor:} \href{http://www.cs.sfu.ca/~mori/}{Greg Mori}%% ~~~~~~~\textit{GPA:} 4.17/4.33
+%%     \item \textit{Coursework:} Machine Learning~(A+), Computer
+%%       Vision~(A+), Algorithms~(A+), Data Mining~(A+), Natural Language
+%%       Processing~(A), Autonomous Robots~(A-)
+    \end{itemize}
+
+  \item B.Sc. in Computer Engineering\\
+    Sharif University of Technology, Tehran, Iran,~~~~~Sep 2003 -- Aug 2007.
+%% \begin{itemize}
+%%   \item GPA 16.32/20.
+%%   \item \textit{Grad courses:} Computational Complexity~(A), Computational Geometry~(A)
+%% \end{itemize}
+\end{itemize}
+
+\section*{Research Interests}
+
+Machine Learning, Neural Networks, Reinforcement Learning, Computer Vision, Natural Language Processing
+
+\section*{Publications}
+
+\begin{itemize}
+
+\item Ofir Nachum, Mohammad Norouzi, Kelvin Xu, Dale Schuurmans,
+``Trust-PCL: An Off-Policy Trust Region Method for Continuous Control'',
+\href{https://arxiv.org/pdf/1707.01891}{ArXiv:1707.01891}, 2017
+
+\item Chris J Maddison, Dieterich Lawson, George Tucker, Nicolas Heess, Mohammad Norouzi, Andriy Mnih, Arnaud Doucet, Yee Whye Teh,
+``Filtering Variational Objectives'',
+\href{https://arxiv.org/pdf/1705.09279}{ArXiv:1705.09279}, NIPS 2017.
+
+\item Ofir Nachum, Mohammad Norouzi, Kelvin Xu, Dale Schuurmans,
+``Bridging the Gap Between Value and Policy Based Reinforcement Learning'',
+\href{https://arxiv.org/pdf/1702.08892}{ArXiv:1702.08892}, NIPS 2017.
+
+\item Ryan Dahl, Mohammad Norouzi, Jonathon Shlens,
+``Pixel Recursive Super Resolution'',
+\href{https://arxiv.org/pdf/1702.00783}{ArXiv:1702.00783}, ICCV 2017.
+
+\item Sergio Guadarrama, Ryan Dahl, David Bieber, Mohammad Norouzi, Jonathon Shlens, Kevin Murphy,
+``PixColor: Pixel Recursive Colorization'',
+\href{https://arxiv.org/pdf/1705.07208}{ArXiv:1705.07208}, BMVC 2017.
+
+\item Michael Gygli, Mohammad Norouzi, Anelia Angelova,
+``Deep Value Networks Learn to Evaluate and Iteratively Refine Structured Outputs'',
+\href{https://arxiv.org/pdf/1703.04363}{ArXiv:1703.04363}, ICML 2017.
+
+\item Azalia Mirhoseini, Hieu Pham, Quoc V Le, Benoit Steiner, Rasmus Larsen, Yuefeng Zhou, Naveen Kumar, Mohammad Norouzi, Samy Bengio, Jeff Dean,
+``Device Placement Optimization with Reinforcement Learning'',
+\href{https://arxiv.org/pdf/1706.04972.pdf}{ArXiv:1706.04972}, ICML 2017.
+
+\item Jesse Engel, Cinjon Resnick, Adam Roberts, Sander Dieleman, Douglas Eck, Karen Simonyan, Mohammad Norouzi,
+``Neural Audio Synthesis of Musical Notes with WaveNet Autoencoders'',
+\href{https://arxiv.org/pdf/1704.01279}{ArXiv:1704.01279}, ICML 2017.
+
+\item Yun Liu, Krishna Gadepalli, Mohammad Norouzi, George E. Dahl, Timo Kohlberger, Aleksey Boyko, Subhashini Venugopalan, Aleksei Timofeev, Philip Q. Nelson, Greg S. Corrado, Jason D. Hipp, Lily Peng, Martin C. Stumpe,
+``Detecting Cancer Metastases on Gigapixel Pathology Images'',\\
+\href{https://arxiv.org/pdf/1703.02442}{ArXiv:1703.02442}, 2017.
+
+\item Irwan Bello, Hieu Pham, Quoc V. Le, Mohammad Norouzi, Samy Bengio,
+``Neural Combinatorial Optimization with Reinforcement Learning'',
+\href{https://arxiv.org/pdf/1611.09940}{ArXiv:1611.09940}, ICLR Workshop 2017.
+
+\item Ofir Nachum, Mohammad Norouzi, Dale Schuurmans,
+``Improving Policy Gradient by Exploring Under-appreciated Rewards'',
+ICLR 2017.
+
+\item
+Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V. Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, Jeff Klingner, Apurva Shah, Melvin Johnson, Xiaobing Liu, Lukasz Kaiser, Stephan Gouws, Yoshikiyo Kato, Taku Kudo, Hideto Kazawa, Keith Stevens, George Kurian, Nishant Patil, Wei Wang, Cliff Young, Jason Smith, Jason Riesa, Alex Rudnick, Oriol Vinyals, Greg Corrado, Macduff Hughes, Jeffrey Dean,
+``Google's neural machine translation system: Bridging the Gap between Human and Machine Translation'',
+\href{https://arxiv.org/pdf/1609.08144}{Arxiv:1609.08144} 2016.
+  
+\item
+Mohammad Norouzi, Samy Bengio, Zhifeng Chen, Navdeep Jaitly, Mike Schuster, Yonghui Wu, Dale Schuurmans,
+``Reward Augmented Maximum Likelihood for Neural Structured Prediction'',\\
+\href{https://arxiv.org/pdf/1609.00150.pdf}{Arxiv:1609.00150}, NIPS 2016.
+
+\item
+Mohammad Norouzi, ``Compact Discrete Representations for Scalable Similarity Search'',
+PhD thesis, 2016.
+
+\item
+Mohammad Norouzi, Maxwell D. Collins, Matthew Johnson, David J. Fleet, Pushmeet Kohl,
+``Efficient Non-greedy Optimization of Decision Trees'', NIPS 2015.
+\item
+Mohammad Norouzi, Maxwell D. Collins, David J. Fleet, Pushmeet Kohli,
+``CO2 Forest: Improved Random Forest by Continuous Optimization of Oblique Splits''
+\href{https://arxiv.org/pdf/1506.06155}{ArXiv:1506.06155}, 2015.
+\item
+Mohammad Norouzi, Tomas Mikolov, Samy Bengio, Yoram Singer, Jonathon Shlens, Andrea Frome, Greg S. Corrado, Jeffrey Dean,
+``Zero-Shot Learning by Convex Combination of Semantic Embeddings'', ICLR 2014.
+\item
+Mohammad Norouzi, Ali Punjani, David J. Fleet, ``Fast Exact Search in Hamming Space with Multi-Index Hashing'',
+\href{https://arxiv.org/pdf/1307.2982}{ArXiv:1307.2982}, TPAMI, vol. 36, no. 6, 2014.
+\item
+  Mohammad Norouzi, David J. Fleet, ``Cartesian k-means'', CVPR 2013.
+\item
+  Mohammad Norouzi, David J. Fleet, Ruslan Salakhutdinov, ``Hamming Distance Metric Learning'', NIPS 2012.
+\item
+  Mohammad Norouzi, Ali Punjani, David J. Fleet, ``Fast Search in Hamming Space with Multi-index Hashing'', CVPR 2012.
+\item 
+  Mohammad Norouzi, David J. Fleet, ``Minimal Loss Hashing for Learning Compact Binary Codes'', ICML 2011.
+\item 
+  Mohammad Norouzi, Mani Ranjbar, and Greg Mori, ``Restricted Boltzmann Machines for Learning Shift-Invariant Features'', CVPR 2009.
+\end{itemize}
+
+\section*{Awards \& Honors}
+
+\begin{itemize}
+\item 2014 Google US/Canada PhD Fellowship in Machine Learning.
+\item Ontario Graduate Scholarship, 2013-14, as an international student.
+\item Ontario Graduate Scholarship, 2012-13, as an international student.
+\item SFU Graduate Fellowship, 2009.
+\item 2nd Team, ACM ICPC Regional Contest, Tehran, 2005. 1st and 3rd teams advanced to ACM Final.
+\item Silver medal (5th place) in \href{http://www.ceoi2003.de/www/}{Central European Olympiad in Informatics (CEOI 2003)}, Munster, Germany.
+\item Team member, International Olympiad in Informatics, 2003. Iranian team could not participate.
+\item Gold medal in Iranian National Olympiad in Informatics, 2003.
+\item Silver medal in Iranian National Olympiad in Informatics, 2002.
+% \item Outstanding student, Awarded by university president, 2003 and 2006.
+\end{itemize}
+
+%% \subsection*{Selected Talks}
+%% \begin{itemize}
+%% \item Convolutional Restricted Boltzmann Machines for Feature Learning, University of Toronto, June 2009.
+%% \end{itemize}
+
+% \subsection*{Scientific Software}
+% \begin{itemize}
+% \item \href{http://libosl.org/}{Open Scientific Library}, An open-source
+%   library for scientific computing in Fortran (in progress).
+% \item \href{http://jblevins.org/research/dfbr}{DFBR}, A Stata program
+%   for distribution-free estimation of heteroskedastic binary response
+%   models, with
+%   \href{http://www.econ.duke.edu/~shakeebk/}{Shakeeb Khan} (2009).
+% \item \href{http://jblevins.org/research/pdest}{PDESolutionTester}, A
+%   Mathematica program for the symbolic verification of exact solutions
+%   of nonlinear partial differential equations, with
+%   \href{http://web.centre.edu/jeffrey.heath/}{Jeff\ Heath} and
+%   \href{http://www.mines.edu/fs_home/whereman/}{Willy\ Hereman} (2002).
+% \end{itemize}
+
+% \section*{Conference Presentations}
+% \begin{itemize}
+% \item Sequential Monte Carlo Methods for Estimating Dynamic
+%   Microeconomic Models
+%   \begin{itemize}
+%   \item ERID Conference on Identification Issues in Economics, Duke
+%     University, October 3, 2008.
+%   \end{itemize}
+% \end{itemize}
+
+\section*{Previous Work Experience}
+
+\begin{itemize}
+
+\item Research Intern, Google Inc., Mountain View, CA, USA.~~Mentors:
+  Samy Bengio and Yoram Singer,  June 2013 -- Sep 2013.
+
+\item Research Intern, Microsoft Research Ltd., Cambridge, UK.~~Mentor:
+  Pushmeet Kohli,\\ March 2013 -- May 2013.
+
+\item Principal Software Developer, ACM training Web application, \href{http://acm.sharif.edu/arbiter/home.jsf?locale=en}{http://acm.sharif.edu}, \\
+%% Joint work with Mohammad Ghodsi, Ramtin Khosravi, Kian Mirjalali,
+%% Siavash Rahbar, Mohammad Hossein Bateni,
+Sharif University, 2006.
+
+\item Member of Scientific Committee, ACM ICPC Regional Contest, 2006 and 2007.
+
+\item Member of Scientific Committee, Iranian National Olympiad in Informatics,~2003-2007 \\
+  Teaching in training camps and designing problems
+  for Iranian National Informatics Olympiad.
+
+% \item Member, \href{http://www.econometricsociety.org/}{Econometric Society},
+%   2006--Present.
+
+% \item Vice President, Economics Graduate Student Council, Duke University,
+%   2006--2007.
+
+% \item Vice President, Society of Undergraduate Mathematics, North
+%   Carolina State University, 2001--2003.
+
+% \item Conferences and workshops attended:
+
+%   \begin{itemize}
+%   \item \href{http://cowles.econ.yale.edu/conferences/sum-09/structural/}%
+%     {Cowles Foundation Conference on Applications of Structural Microeconomics},
+%     Yale University,
+%     June 24--25, 2009.
+%   \item \href{http://www.econ.duke.edu/~brossi/ERIDIdentifProgram.htm}%
+%     {ERID Conference on Identification},
+%     Duke University,
+%     October 3--4, 2008.
+%   \item \href{http://www.econ.duke.edu/NASM/}%
+%     {North American Summer Meetings of the Econometric Society},
+%     Duke University,
+%     June 21--24, 2007.
+%   \item \href{http://ice.uchicago.edu/2006/}{Institute on Computational Economics},
+%     Argonne National Laboratory,
+%     July 17--21, 2006.
+%   \item \href{http://www.siam.org/meetings/la03/}%
+%     {SIAM Conference on Applied Linear Algebra},
+%     The College of William \& Mary,
+%     July 15--19, 2003.
+%   \end{itemize}
+
+%    {\textit{Journal of Econometrics}}% (1)
+%   \item \href{http://www.wiley.com/bw/journal.asp?ref=0303-6898}%
+%     {\textit{Scandinavian Journal of Statistics}}% (1)
+%   \end{itemize}
+\end{itemize}
+
+\section*{Academic Experience}
+
+\begin{itemize}
+
+\item Reviewer for: TPAMI, IJCV, CVPR, ICCV, ECCV, BMVC, IEEE WMVC
+%% CVPR 2013, CVPR 2009, ICCV 2009, BMVC 2009, IEEE WMVC 2009
+\item Teaching Assistant -- UofT: Machine Learning, Data Structures,
+  Algorithms, Introduction to Theory of Computation
+%% , Sep 2010 -- Apr 2011.
+%% \item Research Assistant,
+%%   \href{http://www.cs.sfu.ca/~mori/}{Greg Mori},
+%%   Fall 2008--Fall 2009.
+%% \item Research Assistant,
+%%   \href{http://www.cs.sfu.ca/~hadley/}{Bob Hadley},
+%%   Summer 2008.
+\item Teaching Assistant -- SFU: Discrete Mathematics
+%% , Spring 2008.
+%% \item Member of Computational Geometry Research Group,
+%%   \href{http://sharif.ir/~ghodsi/}{Mohammad Ghodsi}, 2006.\\ Topic:
+%%   Shortest path with maintaining visibility of a moving target,
+%%   Joint work with Alireza Sahraei.
+\item Teaching Assistant -- Sharif University: Data Structure and
+  Algorithms, Advanced Programming in Java, Discrete Structures.
+%% , 2004--2007.
+\end{itemize}
+
+\section*{Miscellaneous}
+
+\begin{itemize}
+\item \textit{Data Structures, Algorithms, and Graph Theory:}
+  Excellent theoretical and practical background, as demonstrated in
+  the programming competitions such as CEOI and ACM ICPC.
+\item \textit{Programming languages skills:} Proficient in C, C++,
+  Java, Matlab.
+\item \textit{Web developement skills:} Experienced in Apache Struts,
+  Hibernate, Spring, JSF, GWT, PHP, HTML.
+
+%% \item Head of Students' Scientific Chapter (SSC),
+%% Organizing scientific lectures and holding supplementary classes,
+%% Elected as member and head, Sharif University, 2004.
+\item \textit{Sports:} avid cyclist, long round-trips:
+  Horseshoe bay to Whistler, Vancouver to Harrison hot springs,
+  Toronto to Waterloo.\\ Member of technical committee, Sharif university hiking club, 2006.
+\end{itemize}
+
+%% \section*{References}
+%% on request.
+
+%% \begin{itemize}
+%% \item Greg Mori\\
+%%   Assistant Professor of Computer Science\\
+%%   Simon Fraser University\\
+%%   \href{mailto:mori@cs.sfu.ca}{\texttt{mori@cs.sfu.ca}}
+%% \item Anoop Sarkar\\
+%%   Associate Professor of Computer Science\\
+%%   Simon Fraser University\\
+%%   \href{mailto:anoop@cs.sfu.ca}{\texttt{anoop@cs.sfu.ca}}
+%% \item Mohamamd Ghodsi\\
+%%   Professor of Computer Engineering\\
+%%   Sharif University of Technology\\
+%%   \href{mailto:ghodsi@sharif.edu}{\texttt{ghodsi@sharif.edu}}
+%% \end{itemize}
+
+\bigskip
+
+% Footer
+\begin{center}
+  \begin{footnotesize}
+    Last updated: \today \\
+    \href{\footerlink}{\texttt{\footerlink}}
+  \end{footnotesize}
+\end{center}
+
+\end{document}

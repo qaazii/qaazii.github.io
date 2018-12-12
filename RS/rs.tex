@@ -82,16 +82,21 @@
 %\footnotetext{Check This}
 
 
-My research investigates the mathematical principles that lead to the
-emergence of {\em Artificial Intelligence (AI)}.  I believe there
-exists a simple universal algorithm that can reasonably address many
-{\em Machine Learning (ML)} problems. Hence, through my research, I
-develop simple and generic ML algorithms that are broadly applicable
-across a range of problem domains including computer vision, natural
-language processing, and sequential decision making. Further, I am
-interested in bridging the gap between various existing ML paradigms
-(\eg~see~\cite{raml,pcl}) to simplify the objective functions and
-understand the benefits and weaknesses of each approach.
+My research investigates the mathematical principles and modeling
+assumptions that lead to the emergence of {\em Artificial Intelligence
+  (AI)}.  I believe there exists a simple and universal algorithm that
+can successfully address many different {\em Machine Learning (ML)}
+problems. Hence, my research focuses on developing simple and generic
+ML algorithms that are broadly applicable across a range of problem
+domains including {\em computer vision}, {\em natural language
+  processing}, and {\em sequential decision making}. I am interested
+in bridging the gap between various existing ML paradigms
+(\eg~see~\cite{raml,pcl}) to help simplify and unify common ML
+objective functions and understand the benefits and weaknesses of each
+approach. My research makes heavy use of {\em deep neural networks}
+because of their flexibility and expressiveness
+(\eg~\cite{seq2seq,alphago}) and intends to make neural nets even more
+powerful and flexibl.esc
 
 %% \begin{wrapfigure}{r}{2in}
 %% %\begin{figure}
@@ -109,45 +114,59 @@ My current research aims to enable effective and efficient {\em
   discrete} latent variables and {\em non-differentiable} components.
 I am inspired by the success of error back propagation through
 multilayer neural networks to jointly optimize hierarchical feature
-extraction and classification modules~\cite{lecun98}.
+extraction and classification modules~\cite{backprop,lecun98}.
 %(\eg~\figref{fig:fig1}).
 My research aspires to facilitate goal driven joint optimization of
 complex AI systems, which comprise vision, natural language, memory,
-and reasoning modules. I believe that by adopting end-to-end
-optimization one can achieve higher degree of efficiency and
-effectiveness in many problem settings.  For example, my co-authors
-and I have demonstrated the effectiveness of (1) end-to-end
+and reasoning modules. I believe that by adopting an end-to-end
+optimization approach, one can achieve higher degree of efficiency and
+effectiveness in many hand-crafted pipelines.  For example, my
+previous work has demonstrated the effectiveness of (1) end-to-end
 optimization of metric learning and quantization
 modules~\cite{mlh,hdml}, (2) non-greedy optimization of decision
 trees~\cite{engodt}, (3) joint optimization of keypoint extraction and
 pose estimation modules~\cite{keypointnet}, and (4) goal-driven
 optimization of sequence models based on a sequence level reward
-feedback~\cite{mapo,ocd}. In all of these applications end-to-end
-optimization provides a big performance boost and offers a way to
-fine-tune separate modules jointly, so that they can coordinate effectively.
+feedback~\cite{mapo,ocd}. Generally, end-to-end optimization results
+in a big performance gain and offers a way to fine-tune separate
+modules to encourage effective cooperation.
 
-Using discrete variables as intermediate ML representations enable
-building {\em interpretable} models and offers valuable insights into
-the inner workings of ML systems. For example, consider a question
-answering system that converts a natural language question into an
-output answer. Such a model can either directly generate answers from
-input questions, or it can first generate an intermediate SQL program
-that when executed on a database results in the
+Discrete latent variables are ubiquitous in machine learning in
+mixture models, efficient memory modules based on discrete codes,
+models of hard attention~\cite{hardattention}, and structured output
+prediction~\cite{}
+
+Using discrete variables as intermediate ML
+representations enables better {\em interpretability} and offers
+valuable insights into the inner workings of ML systems. For example,
+consider a question answering system that converts a natural language
+question into an output answer. One can optimize a neural network to
+directly map intput questions to output answers, or alternatively, a
+neural network can first generate an intermediate SQL program, which
+when executed on a database results in the final
 answer~\cite{mapo}. Having access to an underlying latent program
-allows one to understand the system's behavior and trace back an
+allows one to understand the model's behavior and trace back an
 incorrect answer to issues either in the database or in the model's
 understanding of the question. Interpretability is especially
-important for deploying ML systems in senstive application areas such
+important for deploying ML systems in sensitive application areas such
 as medicine and public policy. Nevertheless, end-to-end optimization
 of discrete variables is often technically challenging due to lack of
 differentiability.
 
-\subsubsection*{Optimization of Discrete Variables via Reinforcement Learning}
+\subsubsection*{Optimization of Discrete Variables via Reinforcement Learning Techniques}
 
-To mitigate non-differentiability of objective functions which involve
-discrete latent variables, I draw inspiration from {\em Reinforcement
-  Learning (RL)} and make use of stochastic variablesadopt a stochastic smoothing of the discrete
-random variables.
+To mitigate the non-differentiability of an objective function that
+involves discrete latent variables, one can define a soft relaxation
+of the original objective function in terms of
+
+probability
+distribution over latent variables and define the objective function
+in terms of an expectation with resp
+
+I draw inspiration from {\em
+  Reinforcement Learning (RL)} and make use of stochastic
+variablesadopt a stochastic smoothing of the discrete random
+variables.
 
 \subsubsection*{End-to-end Model-based Reinforcement Learning}
 \subsubsection*{End-to-end Geometric Reasoning}

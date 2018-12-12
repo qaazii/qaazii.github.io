@@ -82,21 +82,22 @@
 %\footnotetext{Check This}
 
 
-My research investigates the mathematical principles and modeling
-assumptions that lead to the emergence of {\em Artificial Intelligence
-  (AI)}.  I believe there exists a simple and universal algorithm that
-can successfully address many different {\em Machine Learning (ML)}
-problems. Hence, my research focuses on developing simple and generic
-ML algorithms that are broadly applicable across a range of problem
-domains including {\em computer vision}, {\em natural language
-  processing}, and {\em sequential decision making}. I am interested
-in bridging the gap between various existing ML paradigms
-(\eg~see~\cite{raml,pcl}) to help simplify and unify common ML
-objective functions and understand the benefits and weaknesses of each
-approach. My research makes heavy use of {\em deep neural networks}
-because of their flexibility and expressiveness
-(\eg~\cite{seq2seq,alphago}) and intends to make neural nets even more
-powerful and flexibl.esc
+My research lies in {\em Machine Learning (ML)} techniques with
+applications to {\em computer vision}, {\em natural language
+  processing (NLP)}, and {\em sequential decision making}. I study the
+mathematical principles and statistical modeling assumptions that can
+lead to the emergence of {\em Artificial Intelligence (AI)}.  I
+believe there exists a class of simple universal algorithms that
+can successfully address many challenging ML problems. Hence, my
+research focuses on developing simple and generic ML algorithms that
+are broadly applicable across a range of problem domains including
+computer vision and NLP. I am interested in bridging the gap between
+existing ML formulations (\eg~see~\cite{raml,pcl}) to help simplify
+and unify common ML objective functions and investigate the benefits
+and weaknesses of each approach. My research makes heavy use of {\em
+  deep neural networks} because of their flexibility and effectiveness
+(\eg~\cite{seq2seq,alphago}) and attempts to make neural networks even
+more powerful and widely applicable.
 
 %% \begin{wrapfigure}{r}{2in}
 %% %\begin{figure}
@@ -108,67 +109,113 @@ powerful and flexibl.esc
 %%     tuned feature extraction and classification modules.}
 %%   \label{fig:fig1}
 %% \end{wrapfigure}
+%(\eg~\figref{fig:fig1}).
 
 My current research aims to enable effective and efficient {\em
   end-to-end} optimization of multi-stage pipelines that involve {\em
   discrete} latent variables and {\em non-differentiable} components.
 I am inspired by the success of error back propagation through
 multilayer neural networks to jointly optimize hierarchical feature
-extraction and classification modules~\cite{backprop,lecun98}.
-%(\eg~\figref{fig:fig1}).
-My research aspires to facilitate goal driven joint optimization of
+extraction and classification modules~\cite{backprop,lecun98}.  My
+research aspires to facilitate goal driven joint optimization of
 complex AI systems, which comprise vision, natural language, memory,
-and reasoning modules. I believe that by adopting an end-to-end
+and reasoning modules. I believe by adopting an end-to-end
 optimization approach, one can achieve higher degree of efficiency and
-effectiveness in many hand-crafted pipelines.  For example, my
+effectiveness compared to hand engineered pipelines.  For example, my
 previous work has demonstrated the effectiveness of (1) end-to-end
 optimization of metric learning and quantization
 modules~\cite{mlh,hdml}, (2) non-greedy optimization of decision
 trees~\cite{engodt}, (3) joint optimization of keypoint extraction and
 pose estimation modules~\cite{keypointnet}, and (4) goal-driven
 optimization of sequence models based on a sequence level reward
-feedback~\cite{mapo,ocd}. Generally, end-to-end optimization results
-in a big performance gain and offers a way to fine-tune separate
-modules to encourage effective cooperation.
+feedback~\cite{mapo,ocd}. Generally, end-to-end optimization based on
+a well defined objective function offers a principled way to fine-tune
+multi-stage pipelines to encourage effective cooperation among
+different modules.
 
-Discrete latent variables are ubiquitous in machine learning in
-mixture models, efficient memory modules based on discrete codes,
-models of hard attention~\cite{hardattention}, and structured output
-prediction~\cite{}
+\subsubsection*{End-to-end Stochastic Optimization of Discrete Latent Variables}
 
-Using discrete variables as intermediate ML
-representations enables better {\em interpretability} and offers
-valuable insights into the inner workings of ML systems. For example,
-consider a question answering system that converts a natural language
-question into an output answer. One can optimize a neural network to
-directly map intput questions to output answers, or alternatively, a
-neural network can first generate an intermediate SQL program, which
-when executed on a database results in the final
-answer~\cite{mapo}. Having access to an underlying latent program
-allows one to understand the model's behavior and trace back an
-incorrect answer to issues either in the database or in the model's
+\hspace{\parindent} In many ML models based on mixture of experts,
+efficient lookup tables, hard attention~\cite{hardattention}, and
+structured output prediction, one needs to accomodate {\em discrete}
+latent variables.  Using discrete variables as intermediate ML
+representations often facilitates {\em interpretability} and improved
+{\em efficiency}. For example, consider a question answering system
+that converts a natural language question into an output answer. One
+can optimize a neural network to directly map intput questions to
+output answers, or alternatively, one can train a neural network to
+first generate an intermediate SQL program, which when executed on a
+database results in the final answer~\cite{mapo}. Having access to an
+underlying latent program allows one to gain insights into the inner
+workings of the question answering system to trace back an incorrect
+answer to issues either in the database or in the model's
 understanding of the question. Interpretability is especially
 important for deploying ML systems in sensitive application areas such
 as medicine and public policy. Nevertheless, end-to-end optimization
 of discrete variables is often technically challenging due to lack of
 differentiability.
 
-\subsubsection*{Optimization of Discrete Variables via Reinforcement Learning Techniques}
+To differentiate through discrete latent variables, I advocate the use
+of a stochastic relaxation of the objective function in terms of an
+expectation {\em w.\,r.\,t.}~a distribution over discrete
+variables. Then, one can adopt ideas from Reinforcement Learning
+(RL)~\cite{reinforce} and policy optimization to optimze a notion of
+expected loss. We have applied the REINFORCE algorithm~\cite{} and its
+variants to combinatorial optimization with discrete
+structures~\cite{} and structured output prediction~\cite{}, and
+achieved impressive results.  That said, the key limitation of this
+approach stems from the high variance of policy gradient estiamtes.
 
-To mitigate the non-differentiability of an objective function that
-involves discrete latent variables, one can define a soft relaxation
-of the original objective function in terms of
+In our recent work, we present Memory Augmented Policy Optimization
+(MAPO) as a way to incorporate off-policy trajectories in a memory
+buffer to reduce the variance of policy gradient
+estimates. Fortunately, MAPO does not introduce any bias and enables
+state-of-the-art results in weakly supervised semantic
+parsing. Moreover, the independent work of \cite{} shows applicability
+of MAPO to other ML problems with discrete variables. However, MAPO is
+only applicable to deterministic dynamics and discrete actions, which
+limits the applicability of MAPO to more generic RL problems.
 
-probability
-distribution over latent variables and define the objective function
-in terms of an expectation with resp
 
-I draw inspiration from {\em
-  Reinforcement Learning (RL)} and make use of stochastic
-variablesadopt a stochastic smoothing of the discrete random
-variables.
+\subsubsection*{End-to-end Abstraction of RL Environments}
 
-\subsubsection*{End-to-end Model-based Reinforcement Learning}
+Pixel observations from RL environments are hardly interpretable, even
+though the underlying dynamics are often simple. For example, consider
+an Atari game, in which observations comprise $84\!\times\!84$ color
+images, while the underlying dynamics can be defined in terms of
+relatively simple rules. In many cases, one does not require access to
+the full image observation for planning, but rather the core
+components of the game such as the agent, enemy, and obstacle
+locations are enough to define an optimal policy. A key research
+question is how to effectively learn an abstract representation of an
+RL environment to facilitate efficient planning and exploration. In
+our recent work~\cite{contingency}, we have shown that if one
+automatically discover higher level representations based on the
+position of the controllable character, then one can significantly
+improve performance by better exploration.
+
+From an end-to-end optimization perspective, the best way to evaluate
+an abstraction of an RL environment is via examination of such an
+abstraction in planning and policy optimization applications. Given an
+RL environment, my goal is to automatically extract an MDP abstraction
+and use such an abstraction for planning such that one can
+differentiate through the whole process of MDP abstraction and
+planning. We would like to make sure that optimal trajectories in the
+abstract MDP can be translated back into near-optimal trajectories in
+the original environment. Because the abstract MDP is fully observed,
+one can easily solve for the optimal policy by efficient value or
+policy iteration, whereas the original environment does not easily
+comply to such algorithms. An MDP abstraction comprises: (1) a
+pre-specified set of abstract states, (2) a transition model between
+abstract states, (3) an abstract reward function. For simplicity, we
+assume that the abstract MDP and the RL environment share the same set
+of possible actions. Furthermore, we need (4) a parametric mapping to
+map observations in the RL environment into states in the abstract
+MDP. One important benefit of this approach is that given the
+structural nature of an abstract MDP, {\em interpreting} a policy that
+is executated in the real environment is easier, because one can
+examine the underlying transitions in the abstract MDP.
+
 \subsubsection*{End-to-end Geometric Reasoning}
 
 

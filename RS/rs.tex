@@ -10,6 +10,7 @@
 \usepackage[dvips]{color}
 \usepackage{wrapfig}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 % Color Information from - http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/latex_advanced/node13.html
 
@@ -47,7 +48,7 @@
 %\rhead{\thepage}
 \renewcommand{\headrulewidth}{0pt} 
 \renewcommand{\footrulewidth}{0pt} 
-\fancyfoot[C]{\footnotesize \textcolor{gray}{https://norouzi.github.io/}} 
+\fancyfoot[C]{\footnotesize \textcolor{gray}{\href{https://norouzi.github.io/}{https://norouzi.github.io/}}} 
 
 %\pagestyle{myheadings}
 %\markboth{Sundar Iyer}{Sundar Iyer}
@@ -82,12 +83,11 @@
 %\footnotetext{Check This}
 
 
-My research lies in {\em Machine Learning (ML)} techniques with
-applications to {\em computer vision}, {\em natural language
-  processing (NLP)}, and {\em sequential decision making}. I study the
-mathematical principles and statistical modeling assumptions that can
-lead to the emergence of {\em Artificial Intelligence (AI)}.  I
-believe there exists a class of simple universal algorithms that
+My research lies in {\em Machine Learning (ML)} with applications to
+{\em Computer Vision} and {\em Natural Language Processing (NLP)}. I
+study the mathematical principles and statistical modeling assumptions
+that can lead to the emergence of {\em Artificial Intelligence (AI)}.
+I believe there exists a class of simple and universal algorithms that
 can successfully address many challenging ML problems. Hence, my
 research focuses on developing simple and generic ML algorithms that
 are broadly applicable across a range of problem domains including
@@ -130,342 +130,152 @@ pose estimation modules~\cite{keypointnet}, and (4) goal-driven
 optimization of sequence models based on a sequence level reward
 feedback~\cite{mapo,ocd}. Generally, end-to-end optimization based on
 a well defined objective function offers a principled way to fine-tune
-multi-stage pipelines to encourage effective cooperation among
+multi-stage pipelines and encourages effective cooperation among
 different modules.
 
+\vspace*{-.2cm}
 \subsubsection*{End-to-end Stochastic Optimization of Discrete Latent Variables}
 
-\hspace{\parindent} In many ML models based on mixture of experts,
-efficient lookup tables, hard attention~\cite{hardattention}, and
-structured output prediction, one needs to accomodate {\em discrete}
-latent variables.  Using discrete variables as intermediate ML
-representations often facilitates {\em interpretability} and improved
+\hspace{\parindent} {\em Discrete} latent variables are ubiquitous in
+machine learning models that utilize mixture of experts, efficient
+lookup tables~\cite{mih}, hard attention~\cite{hardattention}, and
+structured outputs. Using discrete variables as intermediate ML
+representations often facilitates {\em interpretability} and improves
 {\em efficiency}. For example, consider a question answering system
 that converts a natural language question into an output answer. One
-can optimize a neural network to directly map intput questions to
+can optimize a neural network to directly map input questions to
 output answers, or alternatively, one can train a neural network to
 first generate an intermediate SQL program, which when executed on a
 database results in the final answer~\cite{mapo}. Having access to an
 underlying latent program allows one to gain insights into the inner
-workings of the question answering system to trace back an incorrect
-answer to issues either in the database or in the model's
+workings of the question answering system to possibly attribute an
+incorrect answer to issues in the database or in the model's
 understanding of the question. Interpretability is especially
-important for deploying ML systems in sensitive application areas such
-as medicine and public policy. Nevertheless, end-to-end optimization
-of discrete variables is often technically challenging due to lack of
-differentiability.
+important for sensitive application areas such as medicine and public
+policy. Nevertheless, end-to-end optimization of discrete variables is
+challenging due to lack of {\em differentiability}.
 
 To differentiate through discrete latent variables, I advocate the use
-of a stochastic relaxation of the objective function in terms of an
+of a stochastic relaxation of the objective functions in terms of an
 expectation {\em w.\,r.\,t.}~a distribution over discrete
-variables. Then, one can adopt ideas from Reinforcement Learning
-(RL)~\cite{reinforce} and policy optimization to optimze a notion of
-expected loss. We have applied the REINFORCE algorithm~\cite{} and its
-variants to combinatorial optimization with discrete
-structures~\cite{} and structured output prediction~\cite{}, and
-achieved impressive results.  That said, the key limitation of this
-approach stems from the high variance of policy gradient estiamtes.
+variables. For example, to optimize over latent programs, one can
+maximize an expectation of a score function per program, where the
+expectation is {\em w.\,r.\,t.}~a parametric distribution over all
+possible programs.  Then, one can adopt ideas from {\em Reinforcement
+Learning (RL)} and policy optimization~\cite{sutton1998reinforcement}
+to optimze the stochastic objective function. We have applied the
+REINFORCE algorithm~\cite{reinforce} and its variants to structured
+output prediction~\cite{wu2016gnmt} and combinatorial optimization
+with discrete structures~\cite{bello2016neural,azalia2017}. While this
+approach to end-to-end optimization of discrete variables is
+promising, a key limitation stems from the high variance of gradient
+estimates because of Monte Carlo sampling.
 
-In our recent work, we present Memory Augmented Policy Optimization
-(MAPO) as a way to incorporate off-policy trajectories in a memory
-buffer to reduce the variance of policy gradient
-estimates. Fortunately, MAPO does not introduce any bias and enables
-state-of-the-art results in weakly supervised semantic
-parsing. Moreover, the independent work of \cite{} shows applicability
-of MAPO to other ML problems with discrete variables. However, MAPO is
-only applicable to deterministic dynamics and discrete actions, which
-limits the applicability of MAPO to more generic RL problems.
+A key thread in my research has been trying bridge the gap between
+policy optimization and supervised learning to avoid using high
+variance gradient estimates
+(\eg~see~\cite{raml,pqt2018,ocd,dvn,mapo}).  In our recent work, we
+present Memory Augmented Policy Optimization (MAPO)~\cite{mapo} as a
+way to incorporate off-policy trajectories in a memory buffer to
+reduce the variance of policy gradient estimates, without introducing
+any bias. MAPO achieves the state-of-the-art results in weakly
+supervised semantic parsing. The independent work of \cite{liu2018rao}
+extends the application of MAPO to generative models with discrete
+latent variables. Current formulation of MAPO is limited to
+deterministic score functions, which is not suitable for stochastic RL
+environments. I have developed a generalization of MAPO based on
+control variates that makes this approach much more widely applicable,
+and we are currently performing experiments on stochastic bandit
+problems. In the near future, I am planning to extend MAPO to
+stochastic environments and incorporate bootstrapping into the
+formulation. More generally, I am interested in further bridging the
+gap between imitation learning and RL algorithms~\eg{ocd} to
+facilitate more effective use of discrete structures within ML algorithms.
 
+\vspace*{-.2cm}
+\subsubsection*{End-to-end Abstraction of Reinforcement Learning Problems}
 
-\subsubsection*{End-to-end Abstraction of RL Environments}
-
-Pixel observations from RL environments are hardly interpretable, even
-though the underlying dynamics are often simple. For example, consider
-an Atari game, in which observations comprise $84\!\times\!84$ color
-images, while the underlying dynamics can be defined in terms of
-relatively simple rules. In many cases, one does not require access to
-the full image observation for planning, but rather the core
-components of the game such as the agent, enemy, and obstacle
-locations are enough to define an optimal policy. A key research
-question is how to effectively learn an abstract representation of an
-RL environment to facilitate efficient planning and exploration. In
-our recent work~\cite{contingency}, we have shown that if one
-automatically discover higher level representations based on the
-position of the controllable character, then one can significantly
-improve performance by better exploration.
+\hspace{\parindent} Pixel observations from RL environments are hardly
+interpretable, even though the underlying dynamics are often
+simple. One can think of the problem of recovering the underlying MDP
+abstraction of an RL problem as another instance of learning discrete
+latent representations. For example, consider an Atari game, in which
+observations comprise $84\!\times\!84$ color images, while the
+underlying dynamics can be defined in terms of relatively simple
+rules. In many cases, one does not require access to the full image
+observation for planning, but rather the core components of the game
+such as the locations of the agent, enemies, and obstacles are enough
+to define an optimal policy. A key research question is how to
+effectively learn an abstract representation of an RL environment to
+facilitate efficient planning and exploration. In a recent
+paper~\cite{coex}, we have shown that if one automatically discovers
+higher level representations based on the position of the controllable
+agent, then one can significantly improve performance by more
+structured exploration.
 
 From an end-to-end optimization perspective, the best way to evaluate
-an abstraction of an RL environment is via examination of such an
-abstraction in planning and policy optimization applications. Given an
-RL environment, my goal is to automatically extract an MDP abstraction
-and use such an abstraction for planning such that one can
-differentiate through the whole process of MDP abstraction and
-planning. We would like to make sure that optimal trajectories in the
-abstract MDP can be translated back into near-optimal trajectories in
-the original environment. Because the abstract MDP is fully observed,
-one can easily solve for the optimal policy by efficient value or
-policy iteration, whereas the original environment does not easily
-comply to such algorithms. An MDP abstraction comprises: (1) a
-pre-specified set of abstract states, (2) a transition model between
-abstract states, (3) an abstract reward function. For simplicity, we
-assume that the abstract MDP and the RL environment share the same set
-of possible actions. Furthermore, we need (4) a parametric mapping to
-map observations in the RL environment into states in the abstract
-MDP. One important benefit of this approach is that given the
-structural nature of an abstract MDP, {\em interpreting} a policy that
-is executated in the real environment is easier, because one can
-examine the underlying transitions in the abstract MDP.
+an abstraction of an RL problem is via examination of such an
+abstraction in planning and policy optimization. Given observations
+from an RL environment, I intend to automatically extract an MDP
+abstraction and use such an abstraction for planning in such a way
+that one can differentiate through the process of MDP abstraction and
+planning jointly. I would like to make sure that optimal trajectories
+in the abstract MDP can be translated back into near-optimal
+trajectories in the original environment. Because the abstract MDP is
+fully observed, one can easily find for the optimal policy by
+efficient value and policy iteration algorithms, whereas the original
+environment does not comply with such algorithms. An MDP abstraction
+comprises: (1) a pre-specified set of abstract states, (2) a
+transition model between abstract states, (3) an abstract reward
+function. For simplicity, we will assume that the abstract MDP and the
+RL environment share the same set of possible actions. Furthermore, we
+need (4) a parametric mapping to map observations in the RL
+environment into states in the abstract MDP. An important benefit of
 
+
+this approach is that given the structure of an abstract MDP, one can
+{\em interpret} a policy by visualizing the state transitions and the
+clustering of observations in the abstract MDP.
+
+\vspace*{-.2cm}
 \subsubsection*{End-to-end Geometric Reasoning}
 
+\hspace{\parindent} Another example of interesting discrete structure
+in machine learning is the 3D geometric structure shared by instances
+of an object category. In a recent paper~\cite{keypointnet} for
+end-to-end optimization of category-specific 3D keypoints, along with
+their detectors, for a downstream geometric vision task. Given a
+single image, we extract 3D keypoints that are consistent across
+viewing angles and instances of the corresponding object category. We
+make use of real valued keypoint coordinates for ease of optimization,
+but, the difficulty lies in differentiating Through the geometric
+reasoning module. We propose a differentiable objective function that
+seeks the optimal list of keypoints for recovering the relative pose
+between two views of an object, and we rely on differentiating through
+Singular Value Decomposition (SVD) for optimization.  Importantly, we
+find that our end-to-end geometric reasoning framework using no
+ground-truth keypoint annotations outperforms a fully supervised
+baseline (using the same neural network architecture) on the task of
+pose estimation. I believe we need to come up with better ways of
+incorporating 3D geometry into our generative and discriminative
+neural networks, and KeypointNet is one step in that direction. I will
+continue working on this problem, and inspired by some recent
+work~\cite{kanazawa}, I have some concrete ideas to facilitate other
+forms of end-to-end geometric reasoning for 3D pose and shape
+reconstruction from a single image.
 
-and define an stochastic variant of the
-discrete variables.
+\vspace*{-.2cm}
+\subsubsection*{Research on End-to-end Optimization of Discrete Structures}
 
-\subsection{Memory}
-
-My PhD research concerned with fast similarity search on large data
-collections. I focused on distance metric learning and hashing as
-important modules within a retrieval system. My main insight was that
-these two modules should be optimized jointly to enable more efficiency.
-
-
-I believe in order to build such intelligent systems,
-one needs to facilitate {\em end-to-end} optimization of each module
-jointly with other modules.
-
-
-
-I de
-
-I believe that a small
-set of optimization functions can be used to optimize 
-
-
-Can intelligent behavior be described using simple, elegant principles
-(such as logic or optimization)? Or does it necessarily require
-solving a large number of completely unrelated problems?[16]
-
-
-
-My research lies at the intersection of machine learning algorithms
-and applications in computer vision and natural language processing.
-My current research aims to enable effective and efficient {\em
-  end-to-end} optimization of complex multi-stage pipelines that
-involve {\em discrete} latent variables and {\em non-differentiable}
-components. 
-
-
-My research lies at the intersection of machine learning algorithms
-and applications in computer vision and natural language processing.
-My current research aims to enable effective and efficient {\em
-  end-to-end} optimization of complex multi-stage pipelines that
-involve {\em discrete} latent variables and {\em non-differentiable}
-components.  I am inspired by the success of error back propagation
-through multilayer neural networks to jointly optimize hierarchical
-feature extraction and classification modules. My research goal is to
-facilitate goal driven joint optimization of big AI systems that
-comprise computer vision, natural language, and sequential decision
-making modules.
-
-I am interested in developing simple and efficient machine learning
-algorithms that result in emergence of intelligent behaviour 
-
-
-, and effective machine learning
-algorithms that are broadly applicable across a range of domains
-including computer vision, natural language processing, and sequential
-decision making. I aspire to help build artifical
-
-
-My research aims to My research lies at the intersection of machine learning algorithms
-and applications in computer vision and natural language processing.
-My current research aims to enable effective and efficient {\em                                                                                            
-  end-to-end} optimization of complex multi-stage pipelines that
-involve {\em discrete} latent variables and {\em non-differentiable}
-components.  I am inspired by the success of error back propagation
-through multilayer neural networks to jointly optimize hierarchical
-feature extraction and classification modules. My research aspires
-to facilitate goal driven joint optimization of big AI systems that
-comprise computer vision, natural language, and sequential decision
-making modules. the mathetmatical foundation of intellignece.
-
-
-
-I believe the underlying mathematical
-foundations of inteligence  
-
-
- I believe there exists a class of generic and
-simple models that can address problems in these seemingly different
-domains.
-
-
-My
-current research focuses on {\em (1)} building generative models of
-sequential data, sentences, programs, images, and other structured
-objects.  {\em (2)} Advancing reinforcement learning algorithms and
-applications. {\em (3)} Bridging the gap between sequence modeling,
-imitation learning, and reinforcement learning to develop more
-effective algorithms.
-
-
-My current
-research My research lies at the intersection of machine learning algorithms
-and applications in computer vision and natural language processing.
-My current research aims to enable effective and efficient {\em                                                                                            
-  end-to-end} optimization of complex multi-stage pipelines that
-involve {\em discrete} latent variables and {\em non-differentiable}
-components.  I am inspired by the success of error back propagation
-through multilayer neural networks to jointly optimize hierarchical
-feature extraction and classification modules. My research aspires
-to facilitate goal driven joint optimization of big AI systems that
-comprise computer vision, natural language, and sequential decision
-making modules.
-
-
-
-My research lies at the intersection of machine learning algorithms
-and applications in computer vision and natural language processing.
-My current research aims to enable effective and efficient {\em                                                                                            
-  end-to-end} optimization of complex multi-stage pipelines that
-involve {\em discrete} latent variables and {\em non-differentiable}
-components.  I am inspired by the success of error back propagation
-through multilayer neural networks to jointly optimize hierarchical
-feature extraction and classification modules. My research aspires
-to facilitate goal driven joint optimization of big AI systems that
-comprise computer vision, natural language, and sequential decision
-making modules.
-
-My research lies at the intersection of machine learning (ML)
-algorithms and applications in computer vision and natural language
-processing.  My current research aims to enable efficient and
-effective {\em end-to-end} optimization of multi-stage ML pipelines
-that involve {\em discrete} latent variables and {\em
-  non-differentiable} components.  I am inspired by the success of
-error back propagation through multilayer neural networks to jointly
-optimize hierarchical feature extraction and classification modules.
-%(see \figref{fig:fig1}).
-My research aspires to facilitate similar
-goal driven joint optimization of complex AI systems that comprise
-various computer vision, natural language, and sequential decision
-making modules.
-
-Using discrete variables as intermediate ML representations can offer
-valuable insights into the inner workings of ML systems, \ie~more {\bf
-  interpretable} models. For example, consider a question answering
-system that converts natural language questions to output
-phrases. Such a model can either directly generate the output phrase
-from the input question, or first generate an intermediate SQL program
-that when executed on a database of facts results in an output
-phrase. Having access to an underlying latent program allows one to
-understand the system better and trace back an incorrect answer to
-issues in the database or in the model's understanding of the
-question. Interpretability is particularly important for deploying ML
-systems in senstive areas such as medicine and public policy. That
-said, end-to-end optimization of discrete variables is often
-challenging due to lack of differentiability.
-
-\subsubsection*{End-to-end Model-based Reinforcement Learning}
-\subsubsection*{End-to-end Geometric Reasoning}
-
-\subsection*{Network Architecture ---  A Research Agenda}
-
-   In the course of my research, I have noticed that the overhead (in terms
-of size, power and cost) of designing networking components, which give 
-performance guarantees is small. 
-This is mainly due to two reasons. First, the inherent nature of 
-networking makes many of these problems tractable. Second, a number of
-hardware advances in Architecture, insights in Algorithms {\it \&} Combinatorics, 
-as well as analysis techniques from Probability, {\it \&} Queueing Theory 
-aid in the design of elegant and simple solutions.
-I envisage the field of {\it Network Architecture} created from the 
-ground up, building upon the foundations of a number of fields
-including those mentioned above.
-
-%% IMP - Better examples rather than the old NAT, firewall are needed.
-% Also need more newer examples.
-
-In the near future, I am interested in the 
-principles involved in the design of basic networking 
-components. These include
-hardware components (e.g. scalable memories, 
-network processor and co-processor architectures) and 
-software techniques (e.g. network algorithms, packet processing 
-techniques). 
-  Simultaneously, I intend to understand how large components, which use
-the above building blocks can be architected.
-My research will focus on how these basic and large
-components can be built in a scalable manner while maintaining 
-performance guarantees. 
-In particular, examples of large components that I have a keen
-interest in are switches 
-(e.g. packet and circuit switches, multi-service routers etc.), 
-security devices (e.g. firewalls and intrusion detection 
-systems), network maintenance devices (e.g. measurement,
-management infrastructure) and application aware devices
-(e.g. web server load balancers, proxies) etc. 
-
-% VIMP - Need to say why systems with performance guarantees can help in solving bigger problems.
-% VIMP - How can we get "real" QOS? Solve "DOS" attacks?" etc.
-
- In the future, though performance and scalability will remain key,
-I also intend to look at issues such as {\it fault tolerance, graceful degradation,
-reliability and uptime} of networking systems, which will become more relevant. 
-I also believe that as systems become increasingly large and 
-inter-dependent, {\it simplicity in design and component 
-re-use} will be major factors.
-Parallelism can play a key role here.
-%in aiding and abetting all of the above features. 
-Indeed, many of our proposed solutions, involve component re-use and 
-parallelism, which can aid and abet the above.
-
-% Say something here about network wide phenomena, can we finally
-% get multimedia streaming because of guarantees.
-
- My research will involve a good mix of futuristic and present 
-day research. 
-One part of my work will focus on fundamentally different proposals and
-radical solutions. As an example
---- can we finally achieve real-time streaming over the Internet,
-assuming that the various network components give performance guarantees?
-In contrast, I intend to devote the other part of my work 
-on practical systems, which have immediate relevance and impact in Industry.
-I intend to work closely with a number of
-researchers in related fields. Similarly, I intend to
-collaborate with Industry in understanding and developing solutions
-for practical problems. I believe my past experience of research
-work done jointly with a number of colleagues as well as my prior record
-of participation with Industry will help me achieve this. 
-I am excited at the
-prospect of learning, contributing, giving shape and making an
-impact in this upcoming and challenging field.  
-
-
-% IMP IMP - Staying ahead of Industry?? - MIT works like that...
-% IMP IMP - Say something about research has a 2 pronged idea - Practical Significance and Staying ahead of
-% the curve.
-% aid and abet
-% Say that simplicity is necessary to get reliability, availability...
-% simpicity is helped by re-using components.
-% Far Future.
-%In the far future, I believe that our understanding of 
-% Organization
-% In the future the drive for parallelism will be governed by the design of fault tolerant systems.
-% Scalability, Availability.
-% I would like to work with Internet Researchers, 
-% Collaborate in 
-% Parallelism is meant also for fault tolerance.
-% Most things in networking are evolutionary- happen and deployed slowly.
-% Talk about how you are interested in industry influence also.
-% Talk about Deflection Routing etc., other research.
-% Growth of the field of network architecture.
-% Parts of this field are seeing fruition.
-% Nice to be in this field.
-% Areas of queueing theory, probaility theory, algorithms, computer architecture
-% Combinatorics are coming together.
-% Far in the future.
-% Interested in Industry impact and applications.
+\hspace{\parindent} I believe that by end-to-end optimization of
+multi-stage AI systems, one can achieve a higher degree of efficiency
+and effectiveness. End-to-end optimization of discrete structures is
+particularly important given the interpretability and efficiency
+implications. I presented a few research directions in adopting
+stochastic optimization for learning discrete internal representations
+for structured prediction, program synthesis, and reinforcement
+learning. I identified 3D vision tasks as another domain in which
+end-to-end optimization is possible and fruitful.
 
 \vspace{0.5cm}
 %\begin{flushright}
@@ -479,12 +289,12 @@ impact in this upcoming and challenging field.
 % Change font size?
 % \tiny, \footnotesize, \small,\normalsize, \large, \Large, \LARGE, and \huge 
 %\begin{small}
-\begin{footnotesize}
+\begin{small}
 
 \bibliographystyle{plain}
 \bibliography{bib.bib}
 
-\end{footnotesize}
+\end{small}
 
 \end{document}
 

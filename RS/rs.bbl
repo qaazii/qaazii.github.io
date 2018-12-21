@@ -14,7 +14,7 @@ Irwan Bello, Hieu Pham, Quoc~V Le, {\bf Mohammad Norouzi}, and Samy Bengio.
 Jongwook Choi, Yijie Guo, Marcin Moczulski, Junhyuk Oh, Neal Wu, Mohammad
   Norouzi, and Honglak Lee.
 \newblock Contingency-aware exploration in reinforcement learning.
-\newblock {\em ICLR Submission}, 2018.
+\newblock {\em ICLR}, 2018.
 
 \bibitem{dvn}
 Michael Gygli, {\bf Mohammad Norouzi}, and Anelia Angelova.
@@ -97,7 +97,7 @@ David~E Rumelhart, Geoffrey~E Hinton, and Ronald~J Williams.
 \bibitem{ocd}
 Sara Sabour, William Chan, and {\bf Mohammad Norouzi}.
 \newblock Optimal completion distillation for sequence learning.
-\newblock {\em ICLR Submission}, 2018.
+\newblock {\em ICLR}, 2018.
 
 \bibitem{alphago}
 David Silver, Aja Huang, Chris~J Maddison, Arthur Guez, Laurent Sifre, George

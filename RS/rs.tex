@@ -68,39 +68,29 @@
 
 %\vspace*{0.1cm}
 \begin{center}
-{\LARGE \bf Commercial and Public Impact}\\
+{\LARGE \bf Research Statement}\\
 \vspace*{0.1cm}
 {\normalsize Mohammad Norouzi (mnorouzi@google.com)}
 \vspace*{0.2cm}
 \end{center}
 %\vspace*{0.2cm}
 
-%\begin{document}
-%\centerline {\Large \bf Research Statement for Mohammad Norouzi}
-%\vspace{0.5cm}
-
-% Write about research interests...
-%\footnotemark
-%\footnotetext{Check This}
-
-\comment{
-
 My research lies in {\em Machine Learning (ML)} with applications to
 {\em Computer Vision} and {\em Natural Language Processing (NLP)}. I
 study the mathematical principles and statistical modeling assumptions
 that can lead to the emergence of {\em Artificial Intelligence (AI)}.
-I believe there exists simple and universal algorithms that can
-successfully address many challenging ML problems. My research aims to
-develop such simple and generic ML algorithms that are broadly
-applicable across a range of problem domains including computer vision
-and NLP. I am interested in bridging the gap between existing ML
-formulations (see~\cite{raml,pcl}) to help simplify and unify common
-ML objective functions and investigate the benefits and weaknesses of
-each approach. My research makes heavy use of {\em deep neural
-  networks} because of their flexibility and effectiveness
-(\eg~\cite{seq2seq,alphago}) and attempts to make neural networks even
-more powerful and widely applicable.
+My research aims to develop simple and universal ML algorithms that
+are broadly applicable across a range of problem domains including
+computer vision and NLP. I am interested in bridging the gap between
+existing ML formulations (\eg~see~\cite{raml,pcl,tpcl}) to help
+simplify and unify common ML objective functions and deepen our
+understanding of machine learning. My research makes heavy use of {\em
+  deep neural networks} because of their flexibility and effectiveness
+(\eg~\cite{wu2016gnmt,keypointnet,ocd}) and attempts to make neural
+networks even more powerful and widely applicable.
 
+%% I believe there exists simple and universal algorithms that can
+%% successfully address many challenging ML problems. 
 %% \begin{wrapfigure}{r}{2in}
 %% %\begin{figure}
 %% \vspace*{-.2cm}
@@ -114,50 +104,73 @@ more powerful and widely applicable.
 %(\eg~\figref{fig:fig1}).
 
 My current research aims to enable effective and efficient {\em
-  end-to-end} optimization of multi-stage ML pipelines that involve {\em
-  discrete} latent variables and {\em non-differentiable} components.
-I am inspired by the success of error back propagation through
-multilayer neural networks to jointly optimize hierarchical feature
-extraction and classification modules~\cite{backprop,lecun98}.  My
-research aspires to facilitate goal driven joint optimization of
-complex AI systems, which comprise vision, natural language, memory,
-and reasoning modules. I believe by adopting an end-to-end
-optimization approach, one can achieve higher degree of efficiency and
-effectiveness compared to hand engineered pipelines.  For example, my
-previous work has demonstrated the effectiveness of (1) end-to-end
-optimization of metric learning and quantization
-modules~\cite{mlh,hdml}, (2) non-greedy optimization of decision
-trees~\cite{engodt}, (3) joint optimization of keypoint extraction and
-pose estimation modules~\cite{keypointnet}, and (4) goal-driven
-optimization of sequence models based on a sequence level reward
+  end-to-end} optimization of multi-stage ML pipelines such as
+coversational agents and open-domain question answering systems, which
+often involve {\em discrete} latent variables and {\em
+  non-differentiable} components. I am inspired by the success of
+error back back-propagation through multilayer neural networks to
+jointly optimize hierarchical feature extraction and classification
+modules~\cite{backprop,lecun98}.  My research aspires to facilitate
+similar goal driven joint optimization of complex AI systems, which
+comprise speech recogntion and synthesis, visual reasoning, natural
+language processing, memory lookup, and logical reasoning modules. I
+believe by adopting an end-to-end optimization approach, one can
+achieve a higher degree of efficiency and effectiveness compared to
+hand engineered ML pipelines, which involve separately optimized
+modules.
+
+My previous work has contributed to the core techniques needed for
+{\em end-to-end} optimization of multi-stage ML pipelines and has
+demonstrated the effectiveness of (1) end-to-end optimization of
+metric learning and quantization modules~\cite{mlh,hdml}, (2)
+non-greedy optimization of decision trees~\cite{engodt}, (3) joint
+optimization of keypoint extraction and pose estimation
+modules~\cite{keypointnet}, and (4) goal-driven optimization of
+sequence models based on a sequence level reward
 feedback~\cite{mapo,ocd}. Generally, end-to-end optimization based on
 a well defined objective function offers a principled way to fine-tune
-multi-stage pipelines and encourages effective cooperation among
-different modules.
+multi-stage pipelines and encourages error tolerance and effective
+cooperation among different modules.
+\comment{
+
+ My research program aims to
+facilitate end-to-end optimization of coversational agents and
+open-domain question answering systems, which involve speech
+recognition, information retrieval, interaction with humans and
+database management systems, and speech synthesis.
+
+
+For example, consider speech to speech translation which
+can be done by stacking speech recognition, machine translation, and
+speech synthesis, all of which have been developed in the ML and NLP
+community. That said 
+}
 
 \vspace*{-.2cm}
 \subsubsection*{End-to-end Stochastic Optimization of Discrete Latent Variables}
 \vspace*{-.1cm}
 
 \hspace{\parindent} {\em Discrete} latent variables are ubiquitous in
-machine learning models that utilize mixture of experts, efficient
+machine learning models, which utilize mixture of experts, efficient
 lookup tables~\cite{mih}, hard attention~\cite{hardattention}, and
 structured outputs. Using discrete variables as intermediate ML
-representations often facilitates {\em interpretability} and improves
-{\em efficiency}. For example, consider a question answering system
+representations often facilitates {\em efficiency} and {\em
+  interpretability}. For example, consider a question answering system
 that needs to convert natural language questions to output
 answers. One can optimize a neural network to directly perform this
-mapping, or alternatively, one can train a neural network to first
-generate an intermediate SQL program, and then execute such a program
-on a database to obtain the final answer~\cite{mapo}. Having access to
-the underlying latent programs allows one to gain insights into the
-inner workings of the question answering system. For example, this
-would allow one to attribute an incorrect answer to either an issue in the
-database or in the model's understanding of the
-question. Interpretability is especially important for sensitive
-application areas such as medicine and public policy. Nevertheless,
-end-to-end optimization of discrete variables is challenging due to
-lack of {\em differentiability}.
+mapping, which requires the neural network to store the full knowledge
+of the domain. Alternatively, one can train a neural network to first
+convert a natural question to an intermediate SQL program, and then
+execute the SQL program on a database of facts and relations to obtain
+the final answer~\cite{mapo}. Having access to the underlying latent
+programs allows one to update the facts without having to change the
+neural network and gain insights into the inner workings of the
+question answering system. For example, this would allow one to
+attribute an incorrect answer to either an issue in the database or in
+the model's understanding of the question. Interpretability is
+especially important for sensitive application areas such as medicine
+and public policy. Nevertheless, end-to-end optimization of discrete
+variables is challenging due to lack of {\em differentiability}.
 
 To differentiate through discrete latent variables, I advocate the use
 of a stochastic relaxation of the objective functions in terms of an
@@ -281,11 +294,11 @@ for structured prediction, program synthesis, and reinforcement
 learning. I identified 3D vision tasks as another domain in which
 end-to-end optimization is possible and fruitful.
 
-%\comment{
+\comment{
 \vspace*{-.2cm}
 \subsubsection*{Commercial and Public Engagement}
 \vspace*{-.1cm}
-}
+
 
 \hspace{\parindent} My research focuses on developing Machine Learning
 techniques for real world applications in Computer Vision and Natural
@@ -316,11 +329,13 @@ Google puts me in a strong position to lead research projects with a
 significant commercial and societal impact.
 
 %% Finally, I am also excited about the use
-%% of machine learning for scientific discovery. I belive my reserach on
-%% reinforcement learning and black box opitmization
+%% of machine learning for scientific discovery. I believe my research on
+%% reinforcement learning and black box optimization
 %}
 
 \vspace{0.5cm}
+}
+
 %\begin{flushright}
 %Mohammad Norouzi
 %\end{flushright}

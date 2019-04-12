@@ -11,10 +11,10 @@ Irwan Bello, Hieu Pham, Quoc~V Le, {\bf Mohammad Norouzi}, and Samy Bengio.
 \newblock {\em ICLR Workshop}, 2016.
 
 \bibitem{coex}
-Jongwook Choi, Yijie Guo, Marcin Moczulski, Junhyuk Oh, Neal Wu, Mohammad
-  Norouzi, and Honglak Lee.
+Jongwook Choi, Yijie Guo, Marcin Moczulski, Junhyuk Oh, Neal Wu,
+  {\bf Mohammad Norouzi}, and Honglak Lee.
 \newblock Contingency-aware exploration in reinforcement learning.
-\newblock {\em ICLR Submission}, 2018.
+\newblock {\em ICLR}, 2019.
 
 \bibitem{dvn}
 Michael Gygli, {\bf Mohammad Norouzi}, and Anelia Angelova.
@@ -43,21 +43,7 @@ Chen Liang, {\bf Mohammad Norouzi}, Jonathan Berant, Quoc Le, and Ni~Lao.
 Runjing Liu, Jeffrey Regier, Nilesh Tripuraneni, Michael~I Jordan, and Jon
   McAuliffe.
 \newblock Rao-blackwellized stochastic gradients for discrete distributions.
-\newblock {\em AISTATS Submission}, 2018.
-
-\bibitem{liu2017}
-Yun Liu, Krishna Gadepalli, {\bf Mohammad Norouzi}, George~E Dahl, Timo Kohlberger,
-  Aleksey Boyko, Subhashini Venugopalan, Aleksei Timofeev, Philip~Q Nelson,
-  Greg~S Corrado, et~al.
-\newblock Detecting cancer metastases on gigapixel pathology images.
-\newblock {\em Technical Report}, 2017.
-
-\bibitem{liu2018}
-Yun Liu, Timo Kohlberger, {\bf Mohammad Norouzi}, George~E Dahl, Jenny~L Smith, Arash
-  Mohtashamian, Niels Olson, Lily~H Peng, Jason~D Hipp, and Martin~C Stumpe.
-\newblock Artificial intelligence--based breast cancer nodal metastasis
-  detection: Insights into the black box for pathologists.
-\newblock {\em Archives of pathology \& laboratory medicine}, 2018.
+\newblock {\em AISTATS Submission}, 2019.
 
 \bibitem{azalia2017}
 Azalia Mirhoseini, Hieu Pham, Quoc~V Le, Benoit Steiner, Rasmus Larsen, Yuefeng
@@ -75,6 +61,11 @@ Ofir Nachum, {\bf Mohammad Norouzi}, Kelvin Xu, and Dale Schuurmans.
 \newblock Bridging the gap between value and policy based reinforcement
   learning.
 \newblock {\em NIPS}, 2017.
+
+\bibitem{tpcl}
+\newblock Ofir Nachum, {\bf Mohammad Norouzi}, Kelvin Xu, Dale Schuurmans.
+Trust-PCL: An Off-Policy Trust Region Method for Continuous Control.
+\newblock {\em ICLR}, 2018.
 
 \bibitem{raml}
 {\bf Mohammad Norouzi}, Samy Bengio, Zhifeng Chen, Navdeep Jaitly, Mike Schuster,
@@ -101,7 +92,7 @@ Ofir Nachum, {\bf Mohammad Norouzi}, Kelvin Xu, and Dale Schuurmans.
 \bibitem{mih}
 {\bf Mohammad Norouzi}, Ali Punjani, and David~J Fleet.
 \newblock Fast search in hamming space with multi-index hashing.
-\newblock 2012.
+\newblock {\em CVPR}, 2012.
 
 \bibitem{backprop}
 David~E Rumelhart, Geoffrey~E Hinton, and Ronald~J Williams.
@@ -111,7 +102,7 @@ David~E Rumelhart, Geoffrey~E Hinton, and Ronald~J Williams.
 \bibitem{ocd}
 Sara Sabour, William Chan, and {\bf Mohammad Norouzi}.
 \newblock Optimal completion distillation for sequence learning.
-\newblock {\em ICLR Submission}, 2018.
+\newblock {\em ICLR}, 2019.
 
 \bibitem{alphago}
 David Silver, Aja Huang, Chris~J Maddison, Arthur Guez, Laurent Sifre, George

@@ -1,6 +1,8 @@
 body {
   margin: 0;
+  font-family: sans-serif, Arial, Helvetica;  
 }
+
 .pageright {
   width: 5%;
   float: right
